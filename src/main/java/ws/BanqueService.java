@@ -6,8 +6,8 @@ import java.util.List;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
 import jakarta.jws.WebService;
-
-@WebService(serviceName = "BanqueWS") //library de JAX-WX || BanqueWS et le nom de le webservice
+//webservice class
+@WebService(serviceName = "BanqueWS") //library de JAX-WX et pour convertir en xml utiliser JaxB || BanqueWS et le nom de le webservice
 
 public class BanqueService {
     @WebMethod (operationName = "ConversionEuroToDH") //nom de methode
@@ -15,10 +15,11 @@ public class BanqueService {
         return mt * 11;
     }
     public Compte getCompte(@WebParam(name = "code") int code){
-     return    new Compte(code,Math.random()*60000,new Date());
+     return
+             new Compte(code,Math.random()*60000,new Date());
     }
     @WebMethod
-    public List<Compte> lisrComptes(){
+    public List<Compte> listComptes(){
         return List.of(
                 new Compte(1,Math.random()*60000 , new Date()),
                 new Compte(2,Math.random()*60000 , new Date()),
